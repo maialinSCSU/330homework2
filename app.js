@@ -29,7 +29,7 @@ let serverObj =  http.createServer(function(req,res){
 
 	 		error(res,400,"Missing query string");
             //console.log("Missing query string");
-      }else if (!(validDays.includes(urlObj.day) || validTimes.includes(urlObj.time)))
+      }else if (!(validDays.includes(urlObj.query.day) || validTimes.includes(urlObj.query.time)))
         {
             error(res, 400, "Invalid query entry");
             //console.log("Invalid query entry");
