@@ -12,7 +12,7 @@ const availableTimes = {
     Friday: ["1:30", "2:00", "2:30", "3:00", "3:30", "4:00", "4:30"],
 };
 
-const appointments = [
+let appointments = [
     {name: "James", day: "Wednesday", time: "3:30" },
     {name: "Lillie", day: "Friday", time: "1:00" }];
 
@@ -76,8 +76,7 @@ function cancel(qObj, res) {
 
         if (appointments.some(appt => appt.name === qObj.name && appt.day === qObj.day && appt.time === qObj.time))
         {
-                appointments.filter(appt => !(appt.name === qObj.name && appt.day === qObj.day && appt.time === qObj.time)) //works
-
+		appointments = appointments.filter(appt => !(appt.name === qObj.name && appt.day === qObj.day && appt.time === qObj.time));
                 availableTimes[qObj.day].push(qObj.time);
                 res.writeHead(200,{'content-type':'text/plain'});
                 res.write("Appointment has been cancelled");
