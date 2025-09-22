@@ -25,7 +25,7 @@ let serverObj =  http.createServer(function(req,res){
 	let validDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]; 
 	let validTimes = ["1:00", "1:30", "2:00", "2:30", "3:00", "3:30", "4:00", "4:30"]; 
 	//check if urlObj is a valid day
-	 if (!(urlObj.name & urlObj.day & urlObj.time)) {
+	 if (!(urlObj.name && urlObj.day && urlObj.time)) {
 
 	 		error(res,400,"Missing query string");
             //console.log("Missing query string");
