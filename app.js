@@ -61,13 +61,13 @@ function schedule(qObj,res) {
 
 		appointments.push(newAppt);
 		//currently experiening issues with res 
-		//res.write("scheduled");
-		//res.end();
-		console.log("scheduled");
+		res.write("scheduled");
+		res.end();
+		//console.log("scheduled");
 	}
 	else {
-		//error(res,400,"Can't schedule");
-		console.log("cant schedule");
+		error(res,400,"Can't schedule");
+		//console.log("cant schedule");
 	}
 }
 
@@ -78,28 +78,28 @@ function cancel(qObj, res) {
 		appointments.filter(appt => !(appt.name === qObj.name && appt.day === qObj.day && appt.time === qObj.time)) //works
 		
 		availableTimes[qObj.day].push(qObj.time);
-		//res.write("Appointment has been cancelled");
-		//res.end();
-		console.log("appointment has been cancellled");
+		res.write("Appointment has been cancelled");
+		res.end();
+		//console.log("appointment has been cancellled");
 	}
 	else {
-		//res.write("Appointment not found");
-		//res.end();
-		console.log("appointment not found")
+		res.write("Appointment not found");
+		res.end();
+		//console.log("appointment not found")
 	}
 }
 
 function check(qObj, res) {
 	if (availableTimes[qObj.day].some(time => time == qObj.time))//works
 	{
-		//res.write("Available");
-		//res.end();
-		console.log("Available");
+		res.write("Available");
+		res.end();
+		//console.log("Available");
 	}
 	else {
-		//res.write("Unavailable");
-		//res.end();
-		console.log("unavailable");
+		res.write("Unavailable");
+		res.end();
+		//console.log("unavailable");
 	}
 }
 
